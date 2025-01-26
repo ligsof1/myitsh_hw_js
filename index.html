@@ -3,219 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hw2js</title>
+    <title>HW3</title>
 </head>
 <body>
-    <script>
-        let name, age, city, phone, email, company;
+ 
 
-        name = prompt("Введите ваше имя:");
-        age = prompt("Введите ваш возраст:");
-        city = prompt("Введите ваш город проживания:");
-        phone = prompt("Введите ваш номер телефона:");
-        email = prompt("Введите вашу эл. почту:");
-        company = prompt("Введите название компании:");
-
-        const message = `Меня зовут ${name}. Мне ${age} лет. Я проживаю в городе ${city} и работаю в компании ${company}. Мои контактные данные: ${phone}, ${email}.`;
-        alert(message);
-
-        // ____________________________2_____________________
-        let currentYear = prompt ( "Введите текущий год")
-        let birthYear = currentYear - age;
-
+<!-- ________________________________1____________________________________________ -->
+<script>
+    for (let i = 0; i <= 50 ; i++) {
+        console.log(i);
+    }
+    for (let i = 35; i >= 8; i--) {
+        console.log(i);;
         
-        const birthMessage = `${name} родился в ${birthYear} году.`;
-        alert(birthMessage);
-        // ____________________________3_____________________
+    }
+</script>
+<!-- ________________________________2____________________________________________ -->
+<script>
+    
+    let i = 89;
+    while (i >= 11) {
+        document.write(i + "<br />");
+        i--;
+    }
+</script>
+<!-- ________________________________3____________________________________________ -->
+<script>
+    let sum = 0;
+    for (let i = 0; i <=100 ; i++) {
+        sum = i + sum;
+    }
+    console.log(sum);
+</script>
+<!-- ________________________________4____________________________________________ -->
+<script>
+    for (let num = 1; num <= 5 ; num++) {
+        let sum = 0;
+        for (let i = 1; i <= num; i++) {
+           sum = sum + i ;
+        };
+        console.log("Сумма чисел от 1 до " + num + " равна " + sum);
+    }
+</script>
+<!-- ________________________________5____________________________________________ -->
+<script>
+    for (let i = 8; i <= 56; i +=2) {
+        console.log(i);
+    }
+</script>
+<!-- ________________________________6____________________________________________ -->
+<script>
+  for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <= 10; j++) {
+        document.write(i + "*" +j + '=' +i*j +"<br />")}
+        document.write("<br />");
+    }
+</script>
 
-        let stroka = prompt ("Введите строку из 6 цифр");
-        if (stroka.length !== 6 || isNaN(stroka)) {
-            console.log ("Введите строку из 6 цифр");}
-            else {
-                const pervsum = parseInt(stroka[0]) + parseInt(stroka[1]) + parseInt(stroka[2]);
-                const lastsum = parseInt(stroka[3]) + parseInt(stroka[4]) + parseInt(stroka[5]);
+<!-- ________________________________7____________________________________________ -->
 
-                if(pervsum === lastsum){
-                    console.log (" sum ravn")
-                } else { console.log("sum ne ravn")}
-            }
+<script>
+   let n = 1000;
+let num = 0;
 
-            // ____________________________4_____________________
-
-            let a = 1;
-
-            if (a > 0) {
-                console.log("Верно");
-            } else {
-                console.log("Неверно");
-            }
-
-            a = 0;
-
-            if (a > 0) {
-                console.log("Верно");
-            } else {
-                console.log("Неверно");
-            }
-
-            a = -3;
-
-            if (a > 0) {
-                console.log("Верно");
-            } else {
-                console.log("Неверно");
-            }
-
-            // ____________________________5_____________________
-
-                let a1 = 10;
-                let b = 2;
-
-                let sum = a1 + b;
-                let difference = a1 - b;
-                let product = a1 * b;
-                let quotient = a1 / b;
-
-                console.log("Сумма:", sum);
-                console.log("Разность:", difference);
-                console.log("Произведение:", product);
-                console.log("Частное:", quotient);
-
-                if (sum > 1) {
-                    let squaredSum = sum * sum;
-                    console.log("Сумма в квадрате:", squaredSum);
+for (; n >= 50; n /= 2) {
+    num++;
 }
 
+console.log(" деления:", n);
+console.log(" итераций:", num);
 
-            // ____________________________6_____________________
+</script>
 
+<!-- __________________________________________8_______________________________________________ -->
 
-                if ((a1 > 2 && a1 < 11) || (b >= 6 && b < 14)) {
-                    console.log("Верно");
-                } else {
-                    console.log("Неверно");
-                }
+<script>
 
+let chet = 0;
+let sums = 0;
+let x;
 
+do {
+    x = prompt('введите число или оставьте пустым для выхода):');
+    
+    if (x === '' || x === null || x === '0') {
+        break;
+    }
 
-            // ____________________________7_____________________
+    let number = Number(x);
 
-            let n = prompt('введите число от 0 до 59');
-
-            if (n >= 0 && n < 15) {
-                console.log("первая четверть");
-            } else if (n >= 15 && n < 30) {
-                console.log("вторая четверть");
-            } else if (n >= 30 && n < 45) {
-                console.log("третья четверть");
-            } else if (n >= 45 && n < 60) {
-                console.log("четвертая четверть");
-            } else {
-                console.log("введите число от 0 до 59");
-            }
-
-            // ____________________________8_____________________
-            
-            let day = 18;  
-
-                switch (true) {
-                    case (day >= 1 && day <= 10):
-                        console.log("первая декада");
-                        break;
-                    case (day >= 11 && day <= 20):
-                        console.log("вторая декада");
-                        break;
-                    case (day >= 21 && day <= 31):
-                        console.log("третья декада");
-                        break;
-                    default:
-                        console.log("введите число от 1 до 31");
-                }
-
-         // ____________________________9_____________________
-            
-         let days = 400;  
-
-            let years = days / 365;
-            let months = days / 31;
-            let weeks = days / 7;
-            let hours = days * 24;
-            let minutes = hours * 60;
-            let seconds = minutes * 60;
-
-            console.log("годы:", years);
-            console.log("месяцы:", months);
-            console.log("недели:", weeks);
-            console.log("часы:", hours);
-            console.log("минуты:", minutes);
-            console.log("секунды:", seconds);
-
-            if (days < 365) {
-                console.log("меньше года");
-            }
-            if (days < 31) {
-                console.log("меньше месяца");
-            }
-            if (days < 7) {
-                console.log("меньше недели");
-            }
-
-        // ____________________________10_____________________
-
-        let dayOfYear = prompt('введите число от 1 до 365"');  
-
-
-    let month;
-    if (dayOfYear >= 1 && dayOfYear <= 31) {
-        month = 1;
-    } else if (dayOfYear <= 59) {
-        month = 2;
-    } else if (dayOfYear <= 90) {
-        month = 3;
-    } else if (dayOfYear <= 120) {
-        month = 4;
-    } else if (dayOfYear <= 151) {
-        month = 5;
-    } else if (dayOfYear <= 181) {
-        month = 6;
-    } else if (dayOfYear <= 212) {
-        month = 7;
-    } else if (dayOfYear <= 243) {
-        month = 8;
-    } else if (dayOfYear <= 273) {
-        month = 9;
-    } else if (dayOfYear <= 304) {
-        month = 10;
-    } else if (dayOfYear <= 334) {
-        month = 11;
-    } else if (dayOfYear <= 365) {
-        month = 12;1
+    if (isNaN(number)) {
+        console.log("введите число.");
     } else {
-        console.log("введите число от 1 до 365");
+        chet++;
+        sums += number;
+    }
+} while (true);
+
+if (chet > 0) {
+    let average = sums / chet;
+    console.log("сумма:", sums);
+    console.log("cреднее", average);
+} else {
+    console.log("введено ни одного числа.");
+}
+
+</script>
+<!-- ____________________________________9____________________________________ -->
+
+<script>
+
+    let nums = '4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57';
+    let min = Infinity;
+    let max = -Infinity;
+    let bufer ='';
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] === ' ') {
+            if (Number(bufer) > max ) max = Number(bufer);
+            if (Number(bufer) < min ) min = Number(bufer);
+            bufer = '';
+        } else {
+            bufer = bufer + nums[i];
+        }
+        
     }
 
-    let season;
-    switch (true) {
-        case (dayOfYear >= 1 && dayOfYear <= 59 || dayOfYear >= 335 && dayOfYear <= 365):
-            season = "зима";
-            break;
-        case (dayOfYear >= 60 && dayOfYear <= 151):
-            season = "весна";
-            break;
-        case (dayOfYear >= 152 && dayOfYear <= 243):
-            season = "лето";
-            break;
-        case (dayOfYear >= 244 && dayOfYear <= 334):
-            season = "осень";
-            break;
-        default:
-            season = "неверное значение";
-    }
+    console.log('Минимальное число: ', min);
+    console.log('Максимальное число: ', max);
 
-    console.log("месяц:", month);
-    console.log("пора года:", season);
+    
+
+</script>
+
+<!-- ____________________________________10____________________________________ -->
+
+<script>
+
+let input = prompt("введите произвольное целое число:");
+let n10 = Number(input);
+let originalNumber = n10;
+let count = 0;
+let sum10 = 0;
+let reversedNumber = 0;
+
+console.log("цифры числа:");
+while (n10 !== 0) {
+    let digit = n10 % 10;
+    console.log(digit);
+    sums += digit;
+    reversedNumber = reversedNumber * 10 + digit;
+    n10 = (n10 - digit) / 10; 
+    count++;
+}
+
+console.log(`количество цифр в числе ${originalNumber} составляет ${count}`);
+console.log(`сумма цифр числа ${originalNumber} составляет ${sums}`);
+console.log(`обратный порядок цифр числа ${originalNumber} составляет ${reversedNumber}`);
 
 
-    </script>
+</script>
+
 </body>
 </html>
