@@ -258,15 +258,4 @@ studetinfo();
 
 
 
-function isValidEmail(email) {
-    let atindex = email.indexOf("@");
-    if (atindex === -1 || email.indexOf("@", atindex + 1) !== -1) {
-        return false;
-        
-    }
 
-}
-
-
-
-let email = prompt("введите email");
