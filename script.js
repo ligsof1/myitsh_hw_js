@@ -1,272 +1,175 @@
-function calculateResult(a, b, c) {
-    let result = (a - b) / c;
-    return result;
+let stra = 'aaa@bbb@ccc';
+let newstr = stra.split('@').join('!');
+console.log(newstr);
+
+let str = 'aaa@bbb@ccc';
+let newstra = str.replace(/@/g, '!');
+console.log(newstra);
+
+
+let date = '2025-12-31';
+let [year, month, day] = date.split('-');
+let format = `${day}-${month}-${year}`;
+console.log(format);
+
+
+
+let str_3 = 'Я учу javascript!';
+let word1 = str_3.substr(2, 3); // "учу"
+let word2 = str_3.substr(6, 10); // "javascript"
+
+console.log(word1); // вывод: "учу"
+console.log(word2); // вывод: "javascript"
+
+let str_3_1 = 'Я учу javascript!';
+let word1_1 = str_3_1.substring(2, 5); // "учу"
+let word2_1 = str_3_1.substring(6, 16); // "javascript"
+
+console.log(word1_1); // вывод: "учу"
+console.log(word2_1); // вывод: "javascript"
+
+let str_3_2 = 'Я учу javascript!';
+let word1_2 = str_3_2.slice(2, 5); // "учу"
+let word2_2 = str_3_2.slice(6, 16); // "javascript"
+
+console.log(word1_2); // вывод: "учу"
+console.log(word2_2); // вывод: "javascript"
+
+
+let arr1 = [4, 2, 5, 19, 13, 0, 10];
+let sumOfCubes = 0;
+
+for (let i = 0; i < arr1.length; i++) {
+    sumOfCubes += Math.pow(arr1[i], 3);
 }
 
-let a = 20;
-let b = 10;
-let c = 2;
-let result = calculateResult(a, b, c);
-console.log("результат:", result);
+let result = Math.sqrt(sumOfCubes);
+
+console.log(result); 
 
 
 
-function calculateResult2(d) {
-    let square = d * d;
-    let cube = d * d * d;
-    return { square: square, cube: cube };
+// let c = 0;
+// function sums(a, b) {
+//     c = a - b;
+//     while (c <= 0) {
+//         a++;
+//         c = a - b;
+//     }
+//     return c;
+// }
+
+// console.log(c);
+
+// sums(3, 5);
+// console.log(c); 
+
+
+// let c = 0;
+// function sums(a, b) {
+//     c = a - b;
+//     if (c <= 0) {
+//         return sums(a + 1, b);
+//     }
+//     return c;
+// }
+
+// sums(3, 5);
+// console.log(c); 
+
+
+let a = 3;
+let b = 5;
+let c = Math.abs(a - b); 
+console.log(c); 
+
+a = 6;
+b = 1;
+c = Math.abs(a - b);
+console.log(c); 
+
+
+
+function addZero(num) {
+    return num < 10 ? '0' + num : num;
 }
 
-let d = 10;
-let result2 = calculateResult2(d);
-console.log("число в квадрате = ", result2.square);
-console.log("число в кубе = ", result2.cube);
-
-
-
-function min(f,g) {
-    if (f<g) {
-        return f;
-    } else {
-        return g;
-    }
-};
-
-function max(f,g) {
-    if (f>g) {
-        return f;
-    } else {
-        return g;
-    }
-};
-
-let f = 20;
-let g = 30;
-
-console.log("минимальное = ", min(f,g))
-console.log("максимальное = ", max(f,g))
-
-
-
-function createArray(start, end) {
-    let array = [];
-
-    for (let i = start; i <= end; i++) {
-        array.push(i);   
-    }
-    return array;
+function getDateTime() {
+    let now = new Date();
+    
+    let hours = addZero(now.getHours());
+    let minutes = addZero(now.getMinutes());
+    let seconds = addZero(now.getSeconds());
+    
+    let day = addZero(now.getDate());
+    let month = addZero(now.getMonth() + 1); 
+    let year = now.getFullYear();
+    
+    return `${hours}:${minutes}:${seconds} ${day}.${month}.${year}`;
 }
 
-function displayArray(array) {
-    console.log("полученный массив:",array); 
+console.log(getDateTime());
+
+
+
+let str7 = 'aa aba abba abbba abca abea';
+let matches = str7.match(/ab+a/g);
+console.log(matches); // вывод: ['aba', 'abba', 'abbba']
+
+
+
+
+function validatePhoneNumber(phoneNumber) {
+    const phoneRegex = /^\+\d{1,3} \d{1,4} \d{4,}$/;
+    return phoneRegex.test(phoneNumber);
 }
 
-let start = parseInt(prompt('введите начальное значение массива'));
-let end = parseInt(prompt('введите конечное значение массива'));
-
-
-let array = createArray(start,end);
-displayArray(array);
+console.log(validatePhoneNumber('+375 29 1234567')); // true
 
 
 
-function isEven(number) {
-    if (number % 2 === 0) {
-        return true;
-    } else {
+function validateEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,11}$/;
+
+    if (!emailRegex.test(email)) {
         return false;
     }
-}
-
-let number = parseInt(prompt("введите число"));
-let result3 = isEven(number);
-
-console.log("число", number, "чётное?", result3);
-
-
-
-function isEven(number) {
-    return number % 2 === 0;
-}
-
-function filter(array1) {
-    let evennumbers = [];
-    for (let i = 0; i < array1.length; i++) {
-        if (isEven(array1[i])) {
-            evennumbers.push(array1[i]);
-        }
-    }
-    return evennumbers;
-}
-
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let evennumbers = filter(numbers);
-
-console.log("четные числа:", evennumbers);
-console.log("исходный массив:", numbers);
-
-
-
-
-function Pyramid(rows, symbol) {
-    for (let i = 1; i <= rows; i++) {
-        let line = '';
-        for (let j = 0; j < i; j++) {
-            line += symbol || i;
-        }
-        console.log(line);
-    }
-}
-
-let rows = parseInt(prompt("введите количество рядов:"));
-let symbol = prompt("введите символ для пирамиды или оставьте ");
-
-Pyramid(rows, symbol);
-
-
-
-
-
-function drawpiramid(p__rows, p__symbol) {
-    for (let i = 1; i <= p__rows; i++) {
-        let line = "";
-        let space = "";
-        for (let j = 0; j < i * 2 - 1; j++) {
-            line = line + p__symbol;
-        }
-
-        for (let j = i; j <= p__rows; j++) {
-            space += " "; 
-        }
-
-        document.write('<pre style="margin: 0;">' + space + line + '</pre>');
-    }
-}
-
-let p__symbol = "*";
-let p__rows = parseInt(prompt("Введите количество рядов:"));
-
-drawpiramid(p__rows, p__symbol);
-
-
-
-function fibonacciArray() {
-    let fibArray = [0, 1];
-    let nextFib = fibArray[fibArray.length - 1] + fibArray[fibArray.length - 2];
-
-    while (nextFib <= 1000) {
-        fibArray.push(nextFib);
-        nextFib = fibArray[fibArray.length - 1] + fibArray[fibArray.length - 2];
-    }
-
-    return fibArray;
-}
-
-
-let fibArray = fibonacciArray();
-console.log("массив чисел Фибоначчи от 0 до 1000:", fibArray);
-
-
-
-
-function sumDigits(numberss) {
-
-    let digits = numberss.toString().split('').map(function(digit) {
-        return parseInt(digit);
-    });
     
-    let sum = digits.reduce(function(acc, digit) {
-        return acc + digit;
-    }, 0);
     
-    if (sum > 9) {
-        return sumDigits(sum);
-    } else {
-        return sum;
-    }
-}
-
-
-let numberss = 12345;
-let resultss = sumDigits(numberss);
-console.log("Результат:", resultss);
-
-
-
-function arrayelements(array, index = 0) {
-    
-    if (index >= array.length) {
-        return;
-    }
- 
-    console.log(array[index]);
-    arrayelements(array, index + 1);
-}
-
-let numbersss = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-arrayelements(numbersss);
-
-
-
-
-
-function studetinfo() {
-    
-    let name = prompt("введите имя");
-    let seurname = prompt("введите фамилию");
-    let firstname = prompt("введите отчество");
-    let groopnumber = prompt("введите номер группы");
-
-    let title = "Домашняя работа: «Функции»";
-    let studentInfo = `Выполнил: студент гр. ${groopnumber}`;
-    let fullName = `${firstname} ${name} ${seurname}`;
-
-    let maxlenght = title.length;
-    if (studentInfo.length > maxlenght) {
-        maxlenght = studentInfo.length;
-    }
-
-    if (fullName.length > maxlenght) {
-        maxlenght = fullName.length;
-    }
-
-    function createline(char, length) {
-        let line = "";
-        for (let i = 0; i < length; i++) {
-            line += char;
-        }
-        return line;
-    }
-
-    function createprobelline(text, length) {
-        let probelline = text;
-        while (probelline.length < length) {
-            probelline += " ";
-        }
-        return probelline;
-    }
-
-    console.log(createline("*", maxlenght + 4));
-    console.log(`* ${createprobelline(title, maxlenght)} *`);
-    console.log(`* ${createprobelline(studentInfo, maxlenght)} *`);
-    console.log(`* ${createprobelline(fullName, maxlenght)} *`);
-    console.log(createline("*", maxlenght + 4));
-}
-
-studetinfo();
-
-
-
-
-function isValidEmail(email) {
-    let atindex = email.indexOf("@");
-    if (atindex === -1 || email.indexOf("@", atindex + 1) !== -1) {
+    const localPart = email.split('@')[0];
+    if (localPart.length <= 2 || /^\d+$/.test(localPart)) {
         return false;
-        
     }
-
+    
+    const domainPart = email.split('@')[1];
+    const tld = domainPart.split('.').pop();
+    if (tld.length < 2 || tld.length > 11) {
+        return false;
+    }
+    
+    return true;
 }
 
+console.log(validateEmail('example.email@example.com')); 
+console.log(validateEmail('e@ex.com')); 
+console.log(validateEmail('example@ex@ample.com')); 
+console.log(validateEmail('example@domain.russia')); 
+console.log(validateEmail('пример@пример.com')); 
 
 
-let email = prompt("введите email");
+
+
+function extractUrlComponents(url) {
+    const urlPattern = /^(https?:\/\/[^\/?#]+)([^?#]*)(\?[^#]*)?(#.*)?$/;
+    const match = url.match(urlPattern);
+
+    const domain = match[1] || '';
+    const path = match[2] || '';
+    const queryParams = match[3] ? match[3].substring(1) : '';
+    const fragment = match[4] ? match[4].substring(1) : '';
+
+    return [domain, path, queryParams, fragment];
+}
+
+const url = 'https://tech.onliner.by/2018/04/26/smart-do-200/?utm_source=main_tile&utm_medium=smartdo200#zag3';
+console.log(extractUrlComponents(url));
