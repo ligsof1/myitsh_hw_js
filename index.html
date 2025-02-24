@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0 0 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 50px);
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .tasks {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .task {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .task input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .task.completed label {
+            text-decoration: line-through;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ToDo List</h1>
+        <div>
+            <input type="text" id="taskInput" placeholder="Type your task...">
+            <button onclick="addTask()">Add</button>
+        </div>
+        <ul class="tasks" id="taskList"></ul>
+        <div class="buttons">
+            <button onclick="clearList()">Clear List</button>
+        </div>
+    </div>
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const taskList = document.getElementById('taskList');
+            if (taskInput.value.trim() === '') return;
+
+            const task = document.createElement('li');
+            task.className = 'task';
+            task.innerHTML = `
+                <input type="checkbox" onclick="toggleTask(this)">
+                <label ondblclick="editTask(this)">${taskInput.value}</label>
+            `;
+            taskList.appendChild(task);
+            taskInput.value = '';
+        }
+
+        function toggleTask(checkbox) {
+            const task = checkbox.parentElement;
+            task.classList.toggle('completed');
+        }
+
+        function editTask(label) {
+            const newTask = prompt('Edit your task:', label.textContent);
+            if (newTask !== null) {
+                label.textContent = newTask;
+            }
+        }
+
+        function clearList() {
+            document.getElementById('taskList').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
