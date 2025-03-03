@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="gallery" id="gallery">
+        <div class="gallery__filters">
+            <button class="filter-btn" data-filter="all">Показать все</button>
+            <button class="filter-btn" data-filter="Nature">Nature</button>
+            <button class="filter-btn" data-filter="cars">Cars</button>
+        </div>
+        <div class="gallery__thumbs thumbs">
+            <div class="thumb Nature"><a href=""><img src="img_lights.jpg" alt="Lights"></a></div>
+            <div class="thumb Nature"><a href=""><img src="img_mountains.jpg" alt="Mountains"></a></div>
+            <div class="thumb Nature"><a href=""><img src="img_nature.jpg" alt="Nature"></a></div>
+            <div class="thumb Nature"><a href=""><img src="img_snow.jpg" alt="Snow"></a></div>
+            <div class="thumb cars"><a href=""><img src="cars1.jpg" alt="Cars 1"></a></div>
+            <div class="thumb cars"><a href=""><img src="cars2.jpg" alt="Cars 2"></a></div>
+            <div class="thumb cars"><a href=""><img src="cars3.jpg" alt="Cars 3"></a></div>
+            <div class="thumb cars"><a href=""><img src="cars4.jpg" alt="Cars 4"></a></div>
+        </div>
+        <div class="gallery__preview preview hide">
+            <button class="gallery__preview_close close">X</button>
+        </div>
+    </div>
+
+    <script src="gallery.js"></script>
+    
+</body>
+</html>
